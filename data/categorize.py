@@ -16,6 +16,6 @@ def get_sentiment(word):
 
 df['Sentiment'] = df['word'].apply(get_sentiment)  
 
-df.to_csv('word_count_with_sentiment.csv', index=False)
+df.to_csv('final.csv', index=False)
 
-print("Sentiment analysis completed and saved to 'word_count_with_sentiment.csv'.")
+print("Sentiment analysis completed...")
