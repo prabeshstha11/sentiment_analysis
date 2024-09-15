@@ -58,6 +58,7 @@ def lemmatize_word(word):
     pos = get_wordnet_pos(nltk.pos_tag([word])[0][1])
     return lemmatizer.lemmatize(word, pos)
 
+# def clean_data():
 df = pd.read_csv('data.csv')
 
 df['Cleaned_Comment'] = df['Comment'].apply(lambda x: clean_text(x))
@@ -65,7 +66,7 @@ df['Tokens'] = df['Cleaned_Comment'].apply(lambda x: remove_stop_words(x.split()
 tokens = [word for sublist in df['Tokens'].tolist() for word in sublist]
 
 words = [lemmatize_word(word) for word in tokens]
-word_counts = pd.Series(words).value_counts().reset_index()
-word_counts.columns = ['word', 'count']
+word_count = pd.Series(words).value_counts().reset_index()
+word_count.columns = ['word', 'count']
 
-word_counts.to_csv('word_count.csv', index=False)
+word_count.to_csv('word_count.csv', index=False)

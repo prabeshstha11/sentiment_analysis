@@ -61,10 +61,9 @@ def get_video_id(url):
 
     return None
 
-if __name__ == '__main__':
-    video_url = input("Enter video url: ")
-    video_id = get_video_id(video_url)
-    comments = get_comments(video_id)
-    save_to_csv(comments, 'data.csv')
+video_url = input("Enter video url: ")
+video_id = get_video_id(video_url)
+comments = get_comments(video_id)
+save_to_csv(comments, 'data.csv')
 
-    print(f"Extracted {len(comments)} comments and saved to data.csv")
+print(f"Extracted {len(comments)} comments and saved to data.csv")

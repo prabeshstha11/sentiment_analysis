@@ -6,7 +6,7 @@ df = pd.read_csv('word_count.csv')
 print(df.columns)
 
 def get_sentiment(word):
-    analysis = TextBlob(word)
+    analysis = TextBlob(str(word))
     if analysis.sentiment.polarity > 0:
         return 'positive'
     elif analysis.sentiment.polarity < 0:

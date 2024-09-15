@@ -7,7 +7,6 @@ from sklearn.metrics import classification_report
 
 df = pd.read_csv('final.csv')
 
-
 """ count of good is 3 then -> good good good"""
 df['text'] = df.apply(lambda row: f"{row['word']} " * row['count'], axis=1)
 
@@ -41,7 +40,7 @@ i love movie but it is bad
 """
 def aggregate_sentiments(df, model):
     predictions = []
-    for row in df.iterrows():
+    for index, row in df.iterrows():
         text = f"{row['word']} " * row['count']
         sentiment = model.predict([text])[0]
         predictions.extend([sentiment] * row['count'])
