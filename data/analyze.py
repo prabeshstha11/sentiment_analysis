@@ -33,14 +33,28 @@ y_pred = model.predict(X_test)
 print(classification_report(y_test, y_pred, zero_division=0))
 
 # Predict sentiment for the overall video
+
+"""
+i love movie but it is bad
+
+[-, 1, 0, -, -, -, -1]
+"""
 def aggregate_sentiments(df, model):
     predictions = []
-    for index, row in df.iterrows():
+    for row in df.iterrows():
         text = f"{row['word']} " * row['count']
         sentiment = model.predict([text])[0]
         predictions.extend([sentiment] * row['count'])
     
     sentiment_counts = pd.Series(predictions).value_counts()
+
+    """
+    this is the hashmap containing
+    1(positive) -> count
+    -1(negative) -> count
+
+    if count is not found then returns 0 else returns count
+    """
     if sentiment_counts.get(1, 0) > sentiment_counts.get(-1, 0):
         return 'positive'
     elif sentiment_counts.get(-1, 0) > sentiment_counts.get(1, 0):

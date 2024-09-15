@@ -19,6 +19,7 @@ def get_comments(video_id):
     
     response = request.execute()
     
+    # gets the comments with author name
     while request is not None:
         for item in response['items']:
             comment = item['snippet']['topLevelComment']['snippet']

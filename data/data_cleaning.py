@@ -50,6 +50,11 @@ def remove_stop_words(tokens):
 
 def lemmatize_word(word):
     lemmatizer = WordNetLemmatizer()
+    """
+    WordNetLemmatizer() is a class in the NLTK library that uses the WordNet lexical database to look up the root word. 
+    """
+
+    # for taking root position words
     pos = get_wordnet_pos(nltk.pos_tag([word])[0][1])
     return lemmatizer.lemmatize(word, pos)
 

@@ -1,16 +1,8 @@
 numpy
 pandas
-matplotlib
-seaborn
-plotly
 scikit-learn
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
 nltk
 textblob
-vaderSentiment
-transformers
-torch
-dash
-streamlit
