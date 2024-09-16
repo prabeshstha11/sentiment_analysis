@@ -1,9 +1,5 @@
-import pandas as pd
+# seperate the word as positive or negative
 from textblob import TextBlob
-
-df = pd.read_csv('word_count.csv')
-
-print(df.columns)
 
 def get_sentiment(word):
     analysis = TextBlob(str(word))
@@ -13,9 +9,7 @@ def get_sentiment(word):
         return 'negative'
     else:
         return 'neutral'
-
-df['Sentiment'] = df['word'].apply(get_sentiment)  
-
-df.to_csv('final.csv', index=False)
-
-print("Sentiment analysis completed...")
+    
+while(True):
+    word = input("enter word: ")
+    print(get_sentiment(word))
